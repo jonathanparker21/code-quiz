@@ -38,13 +38,43 @@ h2, h3 {
 }
 
 #question-title {
-    
+    font-size:30px;
+    color:black;
 }
 
 .answers-container {
-
+    background-color: blanchedalmond;
+    border: 0.25em black solid;
+    font-size: 22px;
+    margin-inline: 3em;
+    text-align: center;
+    text-decoration: underline;
 }
 
 #answer {
+    margin-top:15px;
+    display:flex;
+    justify-content: center;
+    color: black;
+    text-emphasis: bold;
+    font-size:larger;
+}
 
+#high-scores {
+    text-emphasis: bolder;
+    text-decoration: underline;
+    font-size: 30px;
+    margin-bottom:1em;
+    text-align: center;
+}
+
+p {
+    margin-left: 47%;  
+    font-size: 30px;
+    margin-bottom: 0.5em;
+}
+
+#play-again {
+    margin-left: 47%;
+    margin-top:1em;
 }
