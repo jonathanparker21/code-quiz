@@ -17,11 +17,12 @@
 
     <div class="container">
 
+        <!-- main page -->
         <div id="main">
             <h1 id="start">Coding Quiz Challenge</h1>
             <h2>Try to answer the following coding-related questions within the allotted time limit.</h2>
             <h3>Incorrect answers will subtract 10 seconds from the clock!</h3>
-            <button id="btn">Start Quiz</button>
+            <button id="btn-start">Start Quiz</button>
         </div>
 
         <!-- question list -->
@@ -34,6 +35,18 @@
                 <div id="answer-4"></div>
             </div>
             <div id="answer"></div>            
+        </div>
+
+        <!-- end page -->
+        <div id="end" class="hide">
+            <h2>You've finished the quiz!</h2>
+            <h2>Enter initials:
+                <input type="text" id="initials">
+            </h2>
+            <button id="btn-submit">Submit</button>
+
+            <div id="result"></div>
+            <div id="user-initials"><span id="username"></span></div>
         </div>
 
     </div>
