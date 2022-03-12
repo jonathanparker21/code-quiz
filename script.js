@@ -210,3 +210,14 @@ function displayScore(initresult) {
     initialValue.textContent = initresult;
     initialValue.style.display = "block"
 };
+
+function saveInitials() {
+
+    console.log("save initials")
+    
+    var savedInitials = localStorage.getItem("initials");
+    nameResult.textContent = savedInitials;
+    
+    var savedScore = localStorage.getItem("HighScore");
+    finalUserScoreResult.textContent = savedScore;
+}
