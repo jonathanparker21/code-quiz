@@ -10,7 +10,7 @@ Our task this week was to build a code quiz with multiple choice questions that 
 
 ## Link to Deployed App
 
-
+https://jonathanparker21.github.io/code-quiz/
 
 ## Credits
 @2022 - Jonathan Parker
