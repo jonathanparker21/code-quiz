@@ -132,3 +132,77 @@ function showQuestion() {
     optionC.addEventListener("click", checkAnswer)
     optionD.addEventListener("click", checkAnswer)
 }
+
+//checking if answer is correct if so show Correct underneath choices else show incorrect with the correct answer
+function checkAnswer(event) {
+
+    console.log("in check answer")
+    //this is how I compare what the user selected to determine if they chose the right or wrong anser
+    var userSelected = event.target.textContent;
+    console.log(event.target.textContent)
+
+    let correctAnswer = questionsArr[questionArrIndex].answer;
+    console.log(correctAnswer)
+    var displayAnswer = document.getElementById("answer");
+    //if answer is matching then display correct and go to next position in index
+    if (userSelected === correctAnswer) {
+        numCorrect += 1;
+        console.log("correct!");
+        questionArrIndex++;
+        if (questionArrIndex < questionsArr.length) {
+            displayAnswer.textContent = ("Correct!");
+            displayAnswer.style.backgroundColor = 'green';
+            setTimeout(function () { showQuestion() }, 700)
+        }
+        // else if answer is wrong then display incorrect and go to next position in index
+    } else {
+        console.log("wrong answer")
+        time -= 10;
+        questionArrIndex++;
+        displayAnswer.textContent = (`Wrong! The correct answer is "${correctAnswer}"`);
+        displayAnswer.style.backgroundColor = 'pink';
+        setTimeout(function () { showQuestion() }, 500)
+    }
+
+
+
+}
+
+// Function to stop quiz
+function stopQuiz() {
+    
+    console.log("stop quiz")
+    
+    // Display end page
+    end.style.display = "block";
+    highscore.style.display = "block";
+    finalUserScoreResult.style.display = "inline";
+    
+    // Hide questions and timer
+    questionTitle.style.display = "none";
+    questionsContainer.style.display = "none";
+    choices.style.display = "none";
+    totalHighScores.style.display = "none";
+    
+    // Show final score
+    submitBtn.addEventListener("click", function handleSubmit() {
+        console.log("clicked submit")
+
+        if (initials === "") {
+            alert("Initials cannot be blank!")
+        } else {
+            displayScore(`You are ending with a score of ${time}.`)
+            initialsofUser.textContent = "Your initals are saved as " + userInitials.value;
+            var username = userInitials.value;
+            
+            playAgain.style.display = "inline";
+
+            // Display high scores
+            totalHighScores.style.display = "block";
+            
+            localStorage.setItem("initials", username);
+            localStorage.setItem("HighScore", time);
+            saveInitials()
+        }
+    })
+}
