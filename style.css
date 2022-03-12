@@ -1,9 +1,5 @@
 body {
-    background-color: blanchedalmond;
-}
-
-.timer {
-    font-size: 21px;
+    background-color: bisque;
 }
 
 .container {
@@ -11,70 +7,67 @@ body {
     justify-content: center;
 }
 
-#main {
+.timer {
+    font-size: 22px;
+}
+
+#instructions {
+    margin-left: 1em;
+    margin-right: 1em;
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+}
+
+#start {
     margin: 5em;
     border: 0.25em solid black;
 }
 
-#start {
+#startbtn, h3 {
     margin-left: 1em;
-    margin-right: 1em;
-    display: flex;
-    justify-content: center;
-    font-size: 30px;
-}
-
-#btnStart {
-    margin-left: 1em;
-    margin-right: 1em;
+    margin-right: 1em;  
     margin-bottom: 1em;
 }
 
-h2, h3 {
-    display: flex;
-    justify-content: center;
-    margin-left: 1em;
-    margin-right: 1em;
+#qtitle {
+    font-size: 30px;
+    color: black;
 }
 
-#questionTitle {
-    font-size:30px;
-    color:black;
-}
-
-.answersContainer {
-    background-color: blanchedalmond;
-    border: 0.25em black solid;
-    font-size: 22px;
-    margin-inline: 3em;
-    text-align: center;
-    text-decoration: underline;
+#optionContainer {
+background-color: bisque;
+border: 0.25em black solid;
+font-size: 22px;
+margin-inline: 3em;
+text-align: center;
+text-decoration: underline;
 }
 
 #answer {
-    margin-top:15px;
-    display:flex;
+    margin-top: 15px;
+    display: flex;
     justify-content: center;
     color: black;
     text-emphasis: bold;
-    font-size:larger;
+    font-size: larger;
 }
 
-#highScores {
+#totalHighscores {
     text-emphasis: bolder;
     text-decoration: underline;
     font-size: 30px;
-    margin-bottom:1em;
+    margin-bottom: 1em;
     text-align: center;
 }
 
 p {
-    margin-left: 47%;  
-    font-size: 30px;
-    margin-bottom: 0.5em;
+  margin-left: 47%;  
+  font-size: 30px;
+  margin-bottom: 0.5em;
 }
 
 #playAgain {
-    margin-left: 47%;
-    margin-top:1em;
+  margin-left: 47%;
+  margin-top: 1em;
 }

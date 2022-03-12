@@ -10,56 +10,56 @@
 </head>
 
 <body>
-
+    <!-- TIMER -->
     <div class="timer">Time:
         <span id="seconds">0</span>
     </div>
 
+    <!-- INTRO -->
     <div class="container">
-
-        <!-- main page -->
-        <div id="main">
-            <h1 id="start">Coding Quiz Challenge</h1>
-            <h2>Try to answer the following coding-related questions within the allotted time limit.</h2>
-            <h3>Incorrect answers will subtract 10 seconds from the clock!</h3>
-            <button id="btnStart">Start Quiz</button>
+        <div id="start">
+            <h1 id="instructions">Coding Quiz Challenge</h1>
+            <h3>Try to answer all of these coding-related questions within the allotted time limit.</h3>
+            <h3>Incorrect answers will decrease your time limit by 10 seconds!</h3>
+            <button id="startbtn">Start Quiz</button>
         </div>
 
-        <!-- question list -->
+        <!-- QUESTIONS -->
         <div id="questions">
-            <h2 id="questionTitle"></h2>
-            <div class="answersContainer" id="answerOptions">
-                <div id="answer1"></div>
-                <div id="answer2"></div>
-                <div id="answer3"></div>
-                <div id="answer4"></div>
+            <h2 id="qtitle"></h2>
+            <div id="choices">
+                <div id="optionContainer">
+                    <div id="optionA"></div>
+                    <div id="optionB"></div>
+                    <div id="optionC"></div>
+                    <div id="optionD"></div>
+                </div>
             </div>
             <div id="answer"></div>
         </div>
 
-        <!-- end page -->
+        <!-- INITIALS -->
         <div id="end" class="hide">
-            <h2>You've finished the quiz!</h2>
-            <h2>Enter initials:
-                <input type="text" id="initials">
+            <h2>All done!</h2>
+            <h2 id="initals">Enter initials:
+                <input type="text" id="userInitials">
             </h2>
-            <button id="btnSubmit">Submit</button>
-
-            <div id="result"></div>
-            <div id="userInitials"><span id="userName"></span></div>
+            <button id="highscore">Submit</button>
+            <div id="initresult"></div>
+            <div id="initalsofUser"><span id="username"></span></div>
         </div>
+    </div>
 
-        <!-- high scores -->
-        <div>
-            <h1 id="highScores">High Scores</h1>
-            <p id="result"></p>
-            <p id="finalUserScore"></p>
-            <button id="playAgain"><a href="./index.html">Play Again?</a></button>
-        </div>
-
+    <!-- HIGH SCORES -->
+    <div>
+        <h1 id="totalHighscores">High Scores</h1>
+        <p id="nameResult"></p>
+        <p id="finalUserScoreResult"></p>
+        <button id="playAgain"><a href="index.html">Click Here to Play Again!</a></button>
     </div>
 
     <script src="./script.js"></script>
+
 </body>
 
 </html>

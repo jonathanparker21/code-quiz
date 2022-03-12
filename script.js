@@ -1,130 +1,134 @@
-/*
-write array of questions
-hide end page & high scores
-add event listener to start the game
-write function to start the quiz
-write function to show the questions
-write function to check the answers
-display the score
-stop the quiz
-save user initials
-*/
+// Manipulating the DOM
+var questionsContainer = document.getElementById("questions")
+var questionTitle = document.getElementById("qtitle")
+var choices = document.getElementById("choices")
+var startBtn = document.getElementById("start")
+var submitBtn = document.getElementById("highscore")
+var timer = document.getElementById("timer")
+var userInitials = document.getElementById("userInitials")
+var optionA = document.getElementById("optionA")
+var optionB = document.getElementById("optionB")
+var optionC = document.getElementById("optionC")
+var optionD = document.getElementById("optionD")
+var answer = document.getElementById("answer")
+var initials = document.getElementById("userInitials")
+var playAgain = document.getElementById("playAgain")
+var totalHighScores = document.getElementById("totalHighscores")
+var initialsofUser = document.getElementById("initalsofUser")
+var username = document.getElementById("username")
+var nameResult = document.getElementById("nameResult")
+var finalUserScoreResult = document.getElementById("finalUserScoreResult")
 
-// questions & answer
+// Hiding end page @ start
+end.style.display = "none";
+highscore.style.display = "none";
+playAgain.style.display = "none";
+totalHighScores.style.display = "none";
+finalUserScoreResult.style.display = "none";
+nameResult.style.result = "none";
+
+// Initializing number of correct and incorrect answers
+numIncorrect = 0
+numCorrect = 0
+
+// Array of questions
 var questionsArr = [{
     question: "How do you call a function?",
-    option1: "commas",
-    option2: "square brackets",
-    option3: "console.log",
-    option4: "parentheses",
-    answer: "parentheses"
+    option1: "Commas",
+    option2: "Square brackets",
+    option3: "Console.log",
+    option4: "Parentheses",
+    answer: "Parentheses"
 },
 {
     question: "How do you traverse an object?",
-    option1: "dot notation",
-    option2: "curly brackets",
-    option3: "parentheses",
-    option4: "square brackets",
-    answer: "dot notation"
+    option1: "Dot notation",
+    option2: "Curly brackets",
+    option3: "Parentheses",
+    option4: "Square brackets",
+    answer: "Dot notation"
 }, {
-    question: "What does JS stand for?",
+    question: "What is JS?",
     option1: "JavaScript",
     option2: "Java",
     option3: "React",
-    option4: "all of the above",
+    option4: "All of the above",
     answer: "JavaScript"
 },
 {
     question: "How do you change the color of text?",
-    option1: "background-color",
-    option2: "color",
-    option3: "font-size",
-    option4: "font-decoration",
-    answer: "color"
+    option1: "Background-color",
+    option2: "Color",
+    option3: "Font-size",
+    option4: "Font-decoration",
+    answer: "Color"
 }, {
     question: "How do you log something to the console?",
     option1: "JavaScript",
     option2: "Sources",
-    option3: "while",
-    option4: "console.log",
-    answer: "console.log"
+    option3: "While",
+    option4: "Console.log",
+    answer: "Console.log"
 }
 ];
 
-// hide end page
-end.style.display = "none";
-btnSubmit.style.display = "none";
-playAgain.style.display = "none";
-highScores.style.display = "none";
-finalUserScore.style.display = "none";
-result.style.result = "none";
-
-// manipulating the DOM
-var questionsContainer = document.getElementById("questions")
-var questionTitle = document.getElementById("questionTitle")
-var answerOptions = document.getElementById("answerOptions")
-var btnStart = document.getElementById("btnStart")
-var btnSubmit = document.getElementById("btmSubmit")
-var timer = document.getElementById("timer")
-var initials = document.getElementById("initials")
-var option1 = document.getElementById("option1")
-var option2 = document.getElementById("option2")
-var option3 = document.getElementById("option3")
-var option4 = document.getElementById("option4")
-var answer = document.getElementById("answer")
-var initials = document.getElementById("userInitials")
-var playAgain = document.getElementById("playAgain")
-var highScores = document.getElementById("highscores")
-var userInitials = document.getElementById("userInitials")
-var userName = document.getElementById("userName")
-var result = document.getElementById("result")
-var finalUserScore = document.getElementById("finalUserScore")
-
-// initializing number of correct and incorrect answers
-numIncorrect = 0
-numCorrect = 0
-
-// beginning our question array index
+// To begin our question array index
 var questionArrIndex = 0;
 
-// start the game
+// Event listener to start quiz
 startBtn.addEventListener('click', beginQuiz)
 
-// starting time 
+// Start time 
 var time = 60;
 
-// function to begin quiz
 function beginQuiz() {
     console.log("starting quiz")
-    //hiding start and end screen
+
+    // Hiding start page during quiz
     start.style.display = "none";
     startBtn.style.display = "none";
     playAgain.style.display = "none";
     totalHighScores.style.display = "none";
     finalUserScoreResult.style.display = "none";
 
-
-    // start the timer
+    // Start timer
     var startTimer = setInterval(function () {
-        // increasing the number of incorrect questions
+
+        // Increasing the number of incorrect questions
         numIncorrect++
-        //decreasing the time by 1 second
+
+        // Decreasing the time by 1 second
         time--;
-        // updating ui for time remaining
+
+        // Updating UI for time remaining
         seconds.textContent = time;
-        //if out of time or it is the end of questions in the questions arr then stopquiz
+
+        // To stop quiz
         if (time < 0 || questionArrIndex === questionsArr.length - 1) {
             clearInterval(startTimer);
-            // timer.textContent = "";
+
             console.log("Correct" + numCorrect)
             console.log("Incorrect " + numIncorrect)
-            // initials.setAttribute("style", "border:2px solid black; margin:5px auto;");
+
             stopQuiz()
         }
-        //goes down by 1 second
+
+        // To go down by 1 second
     }, 1000);
 
     // call questions
     showQuestion()
+}
 
+// To show questions and answer choices
+function showQuestion() {
+    qtitle.textContent = questionsArr[questionArrIndex].question;
+    optionA.textContent = questionsArr[questionArrIndex].option1;
+    optionB.textContent = questionsArr[questionArrIndex].option2
+    optionC.textContent = questionsArr[questionArrIndex].option3
+    optionD.textContent = questionsArr[questionArrIndex].option4
+    optionA.addEventListener("click", checkAnswer)
+    optionB.addEventListener("click", checkAnswer)
+    optionC.addEventListener("click", checkAnswer)
+    optionD.addEventListener("click", checkAnswer)
 }
