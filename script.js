@@ -133,7 +133,7 @@ function showQuestion() {
     optionD.addEventListener("click", checkAnswer)
 }
 
-//checking if answer is correct if so show Correct underneath choices else show incorrect with the correct answer
+// Answer validation
 function checkAnswer(event) {
 
     console.log("in check answer")
@@ -163,14 +163,11 @@ function checkAnswer(event) {
         displayAnswer.style.backgroundColor = 'pink';
         setTimeout(function () { showQuestion() }, 500)
     }
-
-
-
 }
 
 // Function to stop quiz
 function stopQuiz() {
-    
+
     console.log("stop quiz")
     
     // Display end page
@@ -206,3 +203,10 @@ function stopQuiz() {
         }
     })
 }
+
+// Show saved score and initials
+function displayScore(initresult) {
+    var initialValue = document.getElementById("initresult")
+    initialValue.textContent = initresult;
+    initialValue.style.display = "block"
+};
